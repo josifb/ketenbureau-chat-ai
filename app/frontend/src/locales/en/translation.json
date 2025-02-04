@@ -1,0 +1,138 @@
+{
+    "pageTitle": "Ketenbureau AI Email",
+    "headerTitle": "Ketenbureau AI Email",
+    "chat": "Chat",
+    "qa": "Ask a question",
+    "login": "Login",
+    "logout": "Logout",
+    "clearChat": "Clear search results",
+    "history": {
+        "chatHistory": "Search history",
+        "openChatHistory": "Open search history",
+        "noHistory": "No search history",
+        "deleteModalTitle": "Delete search history",
+        "deleteModalDescription": "This action cannot be undone. Delete this search history?",
+        "deleteLabel": "Delete",
+        "cancelLabel": "Cancel",
+        "today": "Today",
+        "yesterday": "Yesterday",
+        "last7days": "Last 7 days",
+        "last30days": "Last 30 days"
+    },
+    "upload": {
+        "fileLabel": "Upload email files:",
+        "uploadedFilesLabel": "Previously uploaded email files:",
+        "noFilesUploaded": "No email files uploaded yet",
+        "loading": "Loading...",
+        "manageFileUploads": "Manage email uploads",
+        "uploadingFiles": "Uploading email files...",
+        "uploadedFileError": "Error uploading file - please try again or contact admin.",
+        "deleteFile": "Delete email file",
+        "deletingFile": "Deleting email file...",
+        "errorDeleting": "Error deleting email file.",
+        "fileDeleted": "Email file deleted"
+    },
+    "developerSettings": "Developer settings",
+    "chatEmptyStateTitle": "Search Emails with AI",
+    "chatEmptyStateSubtitle": "Enter a query or try an example",
+    "defaultExamples": {
+        "1": "Find emails related to Q3 budget updates.",
+        "2": "Search for all emails sent by John Doe in the past week.",
+        "3": "Show emails containing the keyword 'invoice'.",
+        "placeholder": "Type a new search query (e.g., emails with attachments from last month)"
+    },
+    "askTitle": "Search Emails",
+    "gpt4vExamples": {
+        "1": "Find email conversations regarding the upcoming sales report.",
+        "2": "Search for all emails with meeting notes attachments.",
+        "3": "Identify emails sent to marketing team with project updates.",
+        "placeholder": "Example: Find emails with the subject 'annual review'"
+    },
+    "generatingAnswer": "Searching emails...",
+    "citationWithColon": "Source:",
+    "followupQuestions": "Refine your search:",
+    "tooltips": {
+        "submitQuestion": "Submit search query",
+        "askWithVoice": "Search emails with voice",
+        "stopRecording": "Stop recording search query",
+        "showThoughtProcess": "Show search process",
+        "showSupportingContent": "Show relevant email content",
+        "speakAnswer": "Read search results aloud",
+        "info": "Info",
+        "save": "Save",
+        "copy": "Copy",
+        "copied": "Copied!"
+    },
+    "headerTexts": {
+        "thoughtProcess": "Search Process",
+        "supportingContent": "Relevant Email Content",
+        "citation": "Source"
+    },
+    "labels": {
+        "toggleMenu": "Toggle menu",
+        "languagePicker": "Select your language",
+        "headerText": "Configure email search",
+        "closeButton": "Close",
+        "promptTemplate": "Override email search template",
+        "temperature": "Temperature",
+        "seed": "Seed",
+        "minimumSearchScore": "Minimum search relevance score",
+        "minimumRerankerScore": "Minimum reranker score",
+        "retrieveCount": "Retrieve this many email results:",
+        "includeCategory": "Include category",
+        "includeCategoryOptions": {
+            "all": "All"
+        },
+        "excludeCategory": "Exclude category",
+        "useSemanticRanker": "Use semantic ranker for email retrieval",
+        "useSemanticCaptions": "Use semantic captions",
+        "useSuggestFollowupQuestions": "Suggest follow-up searches",
+        "useGPT4V": "Use GPT vision model",
+        "gpt4VInput": {
+            "label": "GPT vision model inputs",
+            "options": {
+                "textAndImages": "Images and text",
+                "images": "Images",
+                "texts": "Text"
+            }
+        },
+        "retrievalMode": {
+            "label": "Retrieval mode",
+            "options": {
+                "hybrid": "Vectors + Text (Hybrid)",
+                "vectors": "Vectors",
+                "texts": "Text"
+            }
+        },
+        "vector": {
+            "label": "Vector fields (Multi-query vector search)",
+            "options": {
+                "embedding": "Text Embeddings",
+                "imageEmbedding": "Image Embeddings",
+                "both": "Text and Image embeddings"
+            }
+        },
+        "useOidSecurityFilter": "Use OID security filter for emails",
+        "useGroupsSecurityFilter": "Use groups security filter for emails",
+        "shouldStream": "Stream search results"
+    },
+    "helpTexts": {
+        "promptTemplate": "Overrides the prompt used to generate email search results. To append to existing prompts, start your prompt with '>>>'.",
+        "temperature": "Sets the temperature of the request to the LLM that generates the email search results. Higher temperatures result in more creative outputs but may be less precise.",
+        "seed": "Sets a seed to improve the reproducibility of the model's responses.",
+        "searchScore": "Sets a minimum relevance score for search results from Azure AI Search.",
+        "rerankerScore": "Sets a minimum score for semantic reranker results. The higher the score, the more relevant the email result.",
+        "retrieveNumber": "Sets the number of email search results to retrieve.",
+        "includeCategory": "Specifies a category of emails to include in the search results.",
+        "excludeCategory": "Specifies a category of emails to exclude from the search results.",
+        "useSemanticReranker": "Enables the semantic ranker to refine email search results.",
+        "useSemanticCaptions": "Sends semantic captions to the model instead of the full email content.",
+        "suggestFollowupQuestions": "Asks the model to suggest follow-up email searches.",
+        "useGPT4Vision": "Uses GPT-4-Turbo with Vision for email attachments analysis.",
+        "vectorFields": "Specifies embedding fields for email searches.",
+        "retrievalMode": "Sets the retrieval mode for email search queries.",
+        "streamChat": "Streams the search results to the UI as they are found.",
+        "useOidSecurityFilter": "Filter email search results by the authenticated user's OID.",
+        "useGroupsSecurityFilter": "Filter email search results by the authenticated user's groups."
+    }
+}

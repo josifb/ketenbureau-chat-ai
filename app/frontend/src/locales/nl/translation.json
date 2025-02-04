@@ -1,0 +1,138 @@
+{
+    "pageTitle": "Ketenbureau AI Email",
+    "headerTitle": "Ketenbureau AI Email",
+    "chat": "Chat",
+    "qa": "Ask a question",
+    "login": "Inloggen",
+    "logout": "Uitloggen",
+    "clearChat": "Zoekresultaten wissen",
+    "history": {
+        "chatHistory": "Zoekgeschiedenis",
+        "openChatHistory": "Zoekgeschiedenis openen",
+        "noHistory": "Geen zoekgeschiedenis",
+        "deleteModalTitle": "Zoekgeschiedenis verwijderen",
+        "deleteModalDescription": "Deze actie kan niet ongedaan worden gemaakt. Zoekgeschiedenis verwijderen?",
+        "deleteLabel": "Verwijderen",
+        "cancelLabel": "Annuleren",
+        "today": "Vandaag",
+        "yesterday": "Gisteren",
+        "last7days": "Laatste 7 dagen",
+        "last30days": "Laatste 30 dagen"
+    },
+    "upload": {
+        "fileLabel": "E-mailbestanden uploaden:",
+        "uploadedFilesLabel": "Eerder geüploade e-mailbestanden:",
+        "noFilesUploaded": "Nog geen e-mailbestanden geüpload",
+        "loading": "Laden...",
+        "manageFileUploads": "E-mailuploads beheren",
+        "uploadingFiles": "E-mailbestanden uploaden...",
+        "uploadedFileError": "Fout bij het uploaden van bestand - probeer het opnieuw of neem contact op met de beheerder.",
+        "deleteFile": "E-mailbestand verwijderen",
+        "deletingFile": "E-mailbestand verwijderen...",
+        "errorDeleting": "Fout bij verwijderen van e-mailbestand.",
+        "fileDeleted": "E-mailbestand verwijderd"
+    },
+    "developerSettings": "Ontwikkelaar instellingen",
+    "chatEmptyStateTitle": "Zoek e-mails met AI",
+    "chatEmptyStateSubtitle": "Voer een zoekopdracht in of probeer een voorbeeld",
+    "defaultExamples": {
+        "1": "Zoek e-mails met betrekking tot Q3 budgetupdates.",
+        "2": "Zoek alle e-mails die door John Doe afgelopen week zijn verzonden.",
+        "3": "Toon e-mails met het sleutelwoord 'factuur'.",
+        "placeholder": "Voer een nieuwe zoekopdracht in (bijvoorbeeld: e-mails met bijlagen van vorige maand)"
+    },
+    "askTitle": "Zoek e-mails",
+    "gpt4vExamples": {
+        "1": "Zoek e-mailgesprekken over het komende verkooprapport.",
+        "2": "Zoek alle e-mails met notulen als bijlage.",
+        "3": "Identificeer e-mails verzonden aan het marketingteam met projectupdates.",
+        "placeholder": "Voorbeeld: Zoek e-mails met het onderwerp 'jaarlijkse beoordeling'"
+    },
+    "generatingAnswer": "E-mails zoeken...",
+    "citationWithColon": "Bron:",
+    "followupQuestions": "Verfijn uw zoekopdracht:",
+    "tooltips": {
+        "submitQuestion": "Zoekopdracht indienen",
+        "askWithVoice": "Zoek e-mails met spraak",
+        "stopRecording": "Stop met opnemen van zoekopdracht",
+        "showThoughtProcess": "Toon zoekproces",
+        "showSupportingContent": "Toon relevante e-mailinhoud",
+        "speakAnswer": "Lees zoekresultaten voor",
+        "info": "Info",
+        "save": "Opslaan",
+        "copy": "Kopiëren",
+        "copied": "Gekopieerd!"
+    },
+    "headerTexts": {
+        "thoughtProcess": "Zoekproces",
+        "supportingContent": "Relevante e-mailinhoud",
+        "citation": "Bron"
+    },
+    "labels": {
+        "toggleMenu": "Menu openen/sluiten",
+        "languagePicker": "Selecteer uw taal",
+        "headerText": "E-mailzoekopdracht configureren",
+        "closeButton": "Sluiten",
+        "promptTemplate": "Prompttemplate overschrijven",
+        "temperature": "Temperatuur",
+        "seed": "Seed",
+        "minimumSearchScore": "Minimale relevantiescore",
+        "minimumRerankerScore": "Minimale reranker score",
+        "retrieveCount": "Haal dit aantal zoekresultaten op:",
+        "includeCategory": "Categorie opnemen",
+        "includeCategoryOptions": {
+            "all": "Alles"
+        },
+        "excludeCategory": "Categorie uitsluiten",
+        "useSemanticRanker": "Gebruik semantische ranker voor e-mailzoekopdrachten",
+        "useSemanticCaptions": "Gebruik semantische bijschriften",
+        "useSuggestFollowupQuestions": "Stel vervolgzoekopdrachten voor",
+        "useGPT4V": "Gebruik GPT Vision-model",
+        "gpt4VInput": {
+            "label": "GPT Vision-model invoer",
+            "options": {
+                "textAndImages": "Afbeeldingen en tekst",
+                "images": "Afbeeldingen",
+                "texts": "Tekst"
+            }
+        },
+        "retrievalMode": {
+            "label": "Ophaalmodus",
+            "options": {
+                "hybrid": "Vectoren + Tekst (Hybride)",
+                "vectors": "Vectoren",
+                "texts": "Tekst"
+            }
+        },
+        "vector": {
+            "label": "Vectorvelden (Multi-query vectorzoekopdracht)",
+            "options": {
+                "embedding": "Tekstembeddings",
+                "imageEmbedding": "Afbeeldingsembeddings",
+                "both": "Tekst- en afbeeldingsembeddings"
+            }
+        },
+        "useOidSecurityFilter": "Gebruik OID-beveiligingsfilter voor e-mails",
+        "useGroupsSecurityFilter": "Gebruik groepsbeveiligingsfilter voor e-mails",
+        "shouldStream": "Zoekresultaten streamen"
+    },
+    "helpTexts": {
+        "promptTemplate": "Overschrijft de prompt gebruikt om e-mailzoekresultaten te genereren. Begin uw prompt met '>>>' om aan de bestaande prompt toe te voegen.",
+        "temperature": "Stelt de temperatuur in van het verzoek aan het model dat e-mailzoekresultaten genereert.",
+        "seed": "Stelt een seed in om de reproduceerbaarheid van de modelresponsen te verbeteren.",
+        "searchScore": "Stelt een minimale relevantiescore in voor zoekresultaten van Azure AI Search.",
+        "rerankerScore": "Stelt een minimale score in voor semantische reranker-resultaten.",
+        "retrieveNumber": "Stelt het aantal zoekresultaten in dat moet worden opgehaald.",
+        "includeCategory": "Specificeert een categorie e-mails om op te nemen in de zoekresultaten.",
+        "excludeCategory": "Specificeert een categorie e-mails om uit te sluiten van de zoekresultaten.",
+        "useSemanticReranker": "Schakelt de semantische ranker in om e-mailzoekresultaten te verfijnen.",
+        "useSemanticCaptions": "Stuurt semantische bijschriften naar het model in plaats van volledige e-mailinhoud.",
+        "suggestFollowupQuestions": "Vraagt het model om vervolgzoekopdrachten voor te stellen.",
+        "useGPT4Vision": "Gebruikt GPT-4-Turbo met Vision voor e-mailbijlagenanalyse.",
+        "vectorFields": "Specificeert embedding-velden voor e-mailzoekopdrachten.",
+        "retrievalMode": "Stelt de ophaalmodus in voor e-mailzoekopdrachten.",
+        "streamChat": "Streamt de zoekresultaten naar de UI terwijl ze worden gevonden.",
+        "useOidSecurityFilter": "Filter zoekresultaten op basis van de OID van de geverifieerde gebruiker.",
+        "useGroupsSecurityFilter": "Filter zoekresultaten op basis van de groepen van de geverifieerde gebruiker."
+    }
+}
