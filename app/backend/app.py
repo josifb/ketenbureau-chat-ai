@@ -123,7 +123,7 @@ async def assets(path):
     return await send_from_directory(Path(__file__).resolve().parent / "static" / "assets", path)
 
 
-@bp.route("/content/<path>")
+@bp.route("/content/<path:path>")
 @authenticated_path
 async def content_file(path: str, auth_claims: Dict[str, Any]):
     """
@@ -135,6 +135,7 @@ async def content_file(path: str, auth_claims: Dict[str, Any]):
     """
     # Remove page number from path, filename-1.txt -> filename.txt
     # This shouldn't typically be necessary as browsers don't send hash fragments to servers
+ 
     if path.find("#page=") > 0:
         path_parts = path.rsplit("#page=", 1)
         path = path_parts[0]

@@ -34,7 +34,7 @@ var actualSearchServiceSemanticRankerLevel = (searchServiceSkuName == 'free')
 param storageAccountName string = '' // Set in main.parameters.json
 param storageResourceGroupName string = '' // Set in main.parameters.json
 param storageResourceGroupLocation string = location
-param storageContainerName string = 'content'
+param storageContainerName string = 'email-data'
 param storageSkuName string // Set in main.parameters.json
 
 param userStorageAccountName string = ''

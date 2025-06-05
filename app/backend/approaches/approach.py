@@ -72,14 +72,11 @@ class Document:
 
     @classmethod
     def trim_embedding(cls, embedding: Optional[List[float]]) -> Optional[str]:
-        """Returns a trimmed list of floats from the vector embedding."""
         if embedding:
             if len(embedding) > 2:
-                # Format the embedding list to show the first 2 items followed by the count of the remaining items."""
                 return f"[{embedding[0]}, {embedding[1]} ...+{len(embedding) - 2} more]"
             else:
                 return str(embedding)
-
         return None
 
 
@@ -92,8 +89,6 @@ class ThoughtStep:
 
 class Approach(ABC):
 
-    # Allows usage of non-GPT model even if no tokenizer is available for accurate token counting
-    # Useful for using local small language models, for example
     ALLOW_NON_GPT_MODELS = True
 
     def __init__(
@@ -103,7 +98,7 @@ class Approach(ABC):
         auth_helper: AuthenticationHelper,
         query_language: Optional[str],
         query_speller: Optional[str],
-        embedding_deployment: Optional[str],  # Not needed for non-Azure OpenAI or for retrieval_mode="text"
+        embedding_deployment: Optional[str],
         embedding_model: str,
         embedding_dimensions: int,
         openai_host: str,
@@ -204,6 +199,12 @@ class Approach(ABC):
 
         return qualified_documents
 
+    def extract_sourcepage_from_sourcefile(self, sourcefile: Optional[str]) -> str:
+        if not sourcefile:
+            return ""
+        prefix = "https://stkbemaildatatst.blob.core.windows.net/email-data/"
+        return sourcefile[len(prefix):] if sourcefile.startswith(prefix) else sourcefile
+
     def get_sources_content(
         self, results: List[Document], use_semantic_captions: bool, use_image_citation: bool
     ) -> list[str]:
@@ -211,29 +212,31 @@ class Approach(ABC):
         def nonewlines(s: str) -> str:
             return s.replace("\n", " ").replace("\r", " ")
 
-        if use_semantic_captions:
-            return [
-                (self.get_citation((doc.sourcepage or ""), use_image_citation))
-                + ": "
-                + nonewlines(" . ".join([cast(str, c.text) for c in (doc.captions or [])]))
-                for doc in results
-            ]
-        else:
-            return [
-                (self.get_citation((doc.sourcepage or ""), use_image_citation)) + ": " + nonewlines(doc.content or "")
-                for doc in results
-            ]
+        output = []
+        for doc in results:
+            # Derive better sourcepage
+            sourcepage = self.extract_sourcepage_from_sourcefile(doc.sourcefile or "")
+            print(f"[DEBUG] Calling get_citation with sourcepage='{sourcepage}'", flush=True)
+            citation = self.get_citation(sourcepage, use_image_citation)
+
+            if use_semantic_captions:
+                caption_texts = " . ".join([cast(str, c.text) for c in (doc.captions or [])])
+                output.append(f"{citation}: {nonewlines(caption_texts)}")
+            else:
+                output.append(f"{citation}: {nonewlines(doc.content or '')}")
+
+        return output
 
     def get_citation(self, sourcepage: str, use_image_citation: bool) -> str:
+        print(f"[DEBUG] get_citation called with sourcepage='{sourcepage}', use_image_citation={use_image_citation}", flush=True)
         if use_image_citation:
             return sourcepage
         else:
             path, ext = os.path.splitext(sourcepage)
             if ext.lower() == ".png":
                 page_idx = path.rfind("-")
-                page_number = int(path[page_idx + 1 :])
+                page_number = int(path[page_idx + 1:])
                 return f"{path[:page_idx]}.pdf#page={page_number}"
-
             return sourcepage
 
     async def compute_text_embedding(self, q: str):
@@ -250,7 +253,6 @@ class Approach(ABC):
             {"dimensions": self.embedding_dimensions} if SUPPORTED_DIMENSIONS_MODEL[self.embedding_model] else {}
         )
         embedding = await self.openai_client.embeddings.create(
-            # Azure OpenAI takes the deployment name as the model name
             model=self.embedding_deployment if self.embedding_deployment else self.embedding_model,
             input=q,
             **dimensions_args,
@@ -275,7 +277,6 @@ class Approach(ABC):
         return VectorizedQuery(vector=image_query_vector, k_nearest_neighbors=50, fields="imageEmbedding")
 
     def get_system_prompt_variables(self, override_prompt: Optional[str]) -> dict[str, str]:
-        # Allows client to replace the entire prompt, or to inject into the existing prompt using >>>
         if override_prompt is None:
             return {}
         elif override_prompt.startswith(">>>"):
