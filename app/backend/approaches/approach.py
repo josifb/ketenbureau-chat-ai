@@ -202,7 +202,7 @@ class Approach(ABC):
     def extract_sourcepage_from_sourcefile(self, sourcefile: Optional[str]) -> str:
         if not sourcefile:
             return ""
-        prefix = "https://stkbemaildatatst.blob.core.windows.net/email-data/"
+        prefix = "https://stkbemaildata.blob.core.windows.net/email-data/"
         return sourcefile[len(prefix):] if sourcefile.startswith(prefix) else sourcefile
 
     def get_sources_content(
